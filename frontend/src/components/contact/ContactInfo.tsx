@@ -16,16 +16,31 @@ export default function ContactInfo() {
       </p>
       <div className="flex flex-col gap-5">
         {contactDetails.map(({ icon: Icon, label, value }) => (
-          <div key={label} className="flex gap-4 items-start">
-            <div className="w-9 h-9 rounded bg-[#eef2ff] flex items-center justify-center shrink-0 mt-0.5">
-              <Icon size={15} className="text-[#1B2A6B]" />
-            </div>
-            <div>
-              <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-0.5">{label}</p>
-              <p className="text-sm text-[#1B2A6B] font-medium whitespace-pre-line">{value}</p>
-            </div>
-          </div>
-        ))}
+  <div key={label} className="flex gap-4 items-start">
+    <div className="w-9 h-9 rounded bg-[#eef2ff] flex items-center justify-center shrink-0 mt-0.5">
+      <Icon size={15} className="text-[#1B2A6B]" />
+    </div>
+
+    <div>
+      <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-0.5">
+        {label}
+      </p>
+
+      {label === "Email" ? (
+        <a
+          href={`mailto:${value}`}
+          className="text-sm text-[#1B2A6B] font-medium hover:underline"
+        >
+          {value}
+        </a>
+      ) : (
+        <p className="text-sm text-[#1B2A6B] font-medium whitespace-pre-line">
+          {value}
+        </p>
+      )}
+    </div>
+  </div>
+))}
       </div>
     </div>
   );

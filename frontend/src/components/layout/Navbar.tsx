@@ -46,7 +46,7 @@ export default function Navbar() {
           <div className="flex flex-col leading-none">
             <span className="font-serif font-bold text-lg text-[#1B2A6B]">Vignova</span>
             <span className="text-[0.55rem] tracking-widest text-gray-400 uppercase font-medium">
-              Private Limited
+              Technologies Private Limited
             </span>
           </div>
         </Link>

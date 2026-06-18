@@ -11,7 +11,7 @@ import { Linkedin, Twitter, Youtube, Instagram } from "lucide-react";
 import { footerLinks } from "@/constants/navigation";
 
 const socialLinks = [
-  { icon: Linkedin,  label: "LinkedIn",  href: "#" },
+  { icon: Linkedin,  label: "LinkedIn",  href: "https://www.linkedin.com/company/vignova-technologies/" },
   { icon: Twitter,   label: "Twitter",   href: "#" },
   { icon: Youtube,   label: "YouTube",   href: "#" },
   { icon: Instagram, label: "Instagram", href: "#" },
@@ -32,7 +32,7 @@ export default function Footer() {
               <div className="flex flex-col leading-none">
                 <span className="font-serif font-bold text-lg text-white">Vignova</span>
                 <span className="text-[0.55rem] tracking-widest text-white/50 uppercase font-medium">
-                  Private Limited
+                  Technologies Private Limited
                 </span>
               </div>
             </div>
@@ -96,7 +96,7 @@ export default function Footer() {
               ))}
             </ul>
             <h4 className="font-semibold text-sm mb-3 text-white">Contact</h4>
-            <p className="text-white/60 text-sm">vignova.offical@gmail.com</p>
+            <p className="text-white/60 text-sm">vignova.official@gmail.com</p>
             <p className="text-white/60 text-sm mt-1">+91 9121519893</p>
           </div>
         </div>
@@ -107,8 +107,19 @@ export default function Footer() {
             &copy; {year} Vignova Technologies Private Limited. All rights reserved.
           </p>
           <div className="flex gap-6">
-            <a href="#" className="text-white/40 hover:text-white/70 text-xs transition-colors">Terms of Use</a>
-            <a href="#" className="text-white/40 hover:text-white/70 text-xs transition-colors">Privacy Policy</a>
+            <Link
+  href="/terms-of-use"
+  className="text-white/40 hover:text-white/70 text-xs transition-colors"
+>
+  Terms of Use
+</Link>
+
+<Link
+  href="/privacy-policy"
+  className="text-white/40 hover:text-white/70 text-xs transition-colors"
+>
+  Privacy Policy
+</Link>
           </div>
         </div>
       </div>
