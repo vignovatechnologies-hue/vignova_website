@@ -12,7 +12,7 @@ import { footerLinks } from "@/constants/navigation";
 
 const socialLinks = [
   { icon: Linkedin,  label: "LinkedIn",  href: "https://www.linkedin.com/company/vignova-technologies/" },
-  { icon: Instagram, label: "Instagram", href: "#" },
+  { icon: Instagram, label: "Instagram", href: " " },
 ];
 
 export default function Footer() {
