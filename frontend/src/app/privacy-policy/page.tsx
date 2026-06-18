@@ -1,42 +1,11 @@
-/* Helper Components — defined BEFORE use to avoid hoisting issues */
-
-function BulletList({ items }) {
-  return (
-    <ul className="list-disc pl-8 space-y-3 text-lg text-gray-700 leading-8">
-      {items.map((item, i) => (
-        <li key={i}>{item}</li>
-      ))}
-    </ul>
-  );
-}
-
-function PolicySection({ title, paragraphs = [], items = [] }) {
-  return (
-    <section className="mb-14">
-      <h2 className="text-3xl font-bold text-gray-900 mb-6">{title}</h2>
-
-      {paragraphs.length > 0 &&
-        paragraphs.map((text, i) => (
-          <p key={i} className="text-lg text-gray-700 leading-9 mb-5">
-            {text}
-          </p>
-        ))}
-
-      {items.length > 0 && <BulletList items={items} />}
-    </section>
-  );
-}
-
-/* Main Component */
-
-export default function PrivacyPolicy() {
+export default function TermsConditions() {
   return (
     <div className="min-h-screen bg-white">
       <div className="max-w-5xl mx-auto px-6 md:px-10 py-12">
 
         {/* Title */}
         <h1 className="text-5xl md:text-6xl font-bold uppercase tracking-wide text-gray-900 mb-12">
-          Privacy Policy
+          Terms & Conditions
         </h1>
 
         {/* Last Updated */}
@@ -44,327 +13,185 @@ export default function PrivacyPolicy() {
           <span className="font-semibold">Last Updated:</span> June 17, 2026
         </p>
 
-        {/* Section 1 — simplified from unnecessary single-item array map */}
-        <section className="mb-14">
-          <h2 className="text-3xl font-bold text-gray-900 mb-6">
-            1. Introduction
-          </h2>
-          {[
-            `Welcome to Vignova Technologies Private Limited ("Vignova", "Company", "we", "our", or "us").`,
-            `We respect your privacy and are committed to protecting the personal information you provide when visiting our website, interacting with our products and services, contacting us, applying for employment opportunities, or engaging with us in any other manner.`,
-            `This Privacy Policy describes how we collect, use, store, process, disclose, and protect your information.`,
-            `By accessing or using our website, you acknowledge that you have read and understood this Privacy Policy and agree to the collection and use of information in accordance with it.`,
-          ].map((text, i) => (
-            <p key={i} className="text-lg text-gray-700 leading-9 mb-5">
-              {text}
-            </p>
-          ))}
-        </section>
+        <PolicySection
+          title="1. Acceptance of Terms"
+          paragraphs={[
+            `By accessing or using the website operated by Vignova Technologies Private Limited ("Vignova", "Company", "we", "our", or "us"), you agree to be bound by these Terms and Conditions.`,
+            `If you do not agree with these Terms, you should discontinue use of the website immediately.`,
+          ]}
+        />
 
-        {/* Section 2 */}
+        <PolicySection
+          title="2. Website Purpose"
+          paragraphs={[
+            `The website is intended to provide information regarding Vignova Technologies Private Limited, its products, services, technology initiatives, career opportunities, partnerships, and business activities.`,
+            `Information provided on this website is for general informational purposes only.`,
+          ]}
+        />
+
         <section className="mb-14">
-          <h2 className="text-3xl font-bold text-gray-900 mb-6">
-            2. Information We Collect
+          <h2 className="text-3xl font-bold mb-6">
+            3. Intellectual Property
           </h2>
 
-          <h3 className="text-2xl font-semibold text-gray-900 mb-4">
-            A. Information You Voluntarily Provide
-          </h3>
-          <p className="text-lg text-gray-700 leading-9 mb-4">
-            We may collect information that you voluntarily submit, including:
-          </p>
-          <BulletList
-            items={[
-              "Full Name",
-              "Email Address",
-              "Phone Number",
-              "Company or Organization Name",
-              "Job Title",
-              "Business Information",
-              "Messages submitted through contact forms",
-              "Career application details",
-              "Resume/CV information",
-              "Any other information voluntarily provided by you",
-            ]}
-          />
-
-          <h3 className="text-2xl font-semibold text-gray-900 mb-4 mt-8">
-            B. Information Automatically Collected
-          </h3>
-          <p className="text-lg text-gray-700 leading-9 mb-4">
-            When you access our website, we may automatically collect:
-          </p>
-          <BulletList
-            items={[
-              "IP Address",
-              "Browser Type and Version",
-              "Device Information",
-              "Operating System",
-              "Referral Source",
-              "Pages Viewed",
-              "Date and Time of Access",
-              "Website Usage Information",
-              "Clickstream Data",
-              "Session Information",
-            ]}
-          />
-
-          <h3 className="text-2xl font-semibold text-gray-900 mb-4 mt-8">
-            C. Cookies and Similar Technologies
-          </h3>
           <p className="text-lg text-gray-700 leading-9 mb-5">
-            We may use cookies, analytics tools, pixels, log files, and similar
-            technologies to improve website functionality, enhance user
-            experience, understand user behavior, and improve our products and
-            services.
+            All content available on this website, including but not limited to:
           </p>
-          <p className="text-lg text-gray-700 leading-9">
-            You may disable cookies through your browser settings. However,
-            certain website features may not function properly if cookies are
-            disabled.
+
+          <BulletList
+            items={[
+              "Logos",
+              "Trademarks",
+              "Product names",
+              "Software",
+              "Graphics",
+              "Text",
+              "Designs",
+              "Images",
+              "Documents",
+            ]}
+          />
+
+          <p className="text-lg text-gray-700 leading-9 mt-6">
+            are the exclusive property of Vignova Technologies Private Limited
+            unless otherwise stated.
+          </p>
+
+          <p className="text-lg text-gray-700 leading-9 mt-5">
+            No content may be copied, reproduced, distributed, modified, or
+            used without prior written consent from Vignova.
           </p>
         </section>
 
         <PolicySection
-          title="3. How We Use Information"
+          title="4. User Conduct"
+          intro="Users agree not to:"
           items={[
-            "Operating and maintaining our website",
-            "Responding to inquiries and support requests",
-            "Communicating with users",
-            "Improving website performance",
-            "Enhancing user experience",
-            "Monitoring website security",
-            "Conducting analytics and research",
-            "Evaluating partnership opportunities",
-            "Processing recruitment applications",
-            "Preventing fraud and abuse",
-            "Enforcing legal rights and agreements",
-            "Complying with legal and regulatory obligations",
+            "Violate any applicable law",
+            "Attempt unauthorized access to systems",
+            "Interfere with website functionality",
+            "Upload malicious software",
+            "Misrepresent identity",
+            "Collect information from other users without authorization",
+          ]}
+          paragraphs={[
+            "Vignova reserves the right to restrict or terminate access for violations.",
           ]}
         />
 
         <PolicySection
-          title="4. Legal Basis for Processing"
+          title="5. Third-Party Links"
+          paragraphs={[
+            "The website may contain links to third-party websites.",
+            "Vignova does not endorse and is not responsible for third-party content, services, policies, or practices.",
+          ]}
+        />
+
+        <PolicySection
+          title="6. Product Information"
+          paragraphs={[
+            "Descriptions of products, services, roadmaps, features, future developments, or technology concepts are provided for informational purposes.",
+            "Vignova reserves the right to modify, discontinue, delay, or change any product, feature, or service without notice.",
+          ]}
+        />
+
+        <PolicySection
+          title="7. No Warranty"
+          intro="The website and all content are provided on an 'AS IS' and 'AS AVAILABLE' basis. Vignova makes no warranties regarding:"
           items={[
-            "User consent",
-            "Contractual necessity",
-            "Legal obligations",
-            "Legitimate business interests",
-            "Protection of rights, property, and security",
-          ]}
-        />
-
-        <section className="mb-14">
-          <h2 className="text-3xl font-bold text-gray-900 mb-6">
-            5. Information Sharing and Disclosure
-          </h2>
-          <p className="text-lg text-gray-700 leading-9 mb-5">
-            Vignova does not sell, rent, or trade personal information to third parties.
-          </p>
-
-          <h3 className="text-2xl font-semibold text-gray-900 mb-4">
-            Service Providers
-          </h3>
-          <BulletList
-            items={[
-              "Website hosting",
-              "Cloud infrastructure",
-              "Analytics",
-              "Communication services",
-              "Security monitoring",
-              "Recruitment management",
-            ]}
-          />
-
-          <h3 className="text-2xl font-semibold text-gray-900 mb-4 mt-8">
-            Business Transfers
-          </h3>
-          <BulletList
-            items={[
-              "Mergers",
-              "Acquisitions",
-              "Corporate restructuring",
-              "Asset sales",
-              "Investment transactions",
-            ]}
-          />
-
-          <h3 className="text-2xl font-semibold text-gray-900 mb-4 mt-8">
-            Legal Compliance
-          </h3>
-          <BulletList
-            items={[
-              "Comply with applicable laws",
-              "Respond to legal requests",
-              "Protect company rights",
-              "Investigate fraud or security incidents",
-              "Enforce agreements",
-            ]}
-          />
-        </section>
-
-        <PolicySection
-          title="6. Data Retention"
-          paragraphs={[
-            "We retain personal information only for as long as reasonably necessary to fulfill the purposes outlined in this Privacy Policy, comply with legal obligations, resolve disputes, enforce agreements, and maintain legitimate business records.",
-            "When information is no longer required, it may be deleted, anonymized, or securely destroyed.",
+            "Accuracy",
+            "Completeness",
+            "Reliability",
+            "Availability",
+            "Security",
+            "Suitability",
           ]}
         />
 
         <PolicySection
-          title="7. Data Security"
+          title="8. Limitation of Liability"
           paragraphs={[
-            "We implement commercially reasonable administrative, technical, organizational, and physical safeguards designed to protect information against unauthorized access, misuse, disclosure, alteration, or destruction.",
-            "However, no internet-based service, transmission method, or storage system can be guaranteed to be 100% secure. Users acknowledge and accept these inherent risks.",
+            "To the maximum extent permitted by law, Vignova shall not be liable for any direct, indirect, incidental, special, consequential, or punitive damages arising from use of the website.",
           ]}
         />
 
         <PolicySection
-          title="8. Third-Party Websites and Services"
+          title="9. Indemnification"
           paragraphs={[
-            "Our website may contain links to third-party websites, applications, or services.",
-            "Users should review the privacy policies of any third-party services they access.",
-          ]}
-          items={[
-            "Third-party content",
-            "Privacy practices",
-            "Security measures",
-            "Terms and conditions",
+            "Users agree to indemnify and hold harmless Vignova, its directors, officers, employees, and affiliates from claims arising from misuse of the website or violation of these Terms.",
           ]}
         />
 
         <PolicySection
-          title="9. International Data Transfers"
+          title="10. Modifications"
           paragraphs={[
-            "Your information may be processed, stored, or transferred to servers and service providers located in India or other jurisdictions where Vignova or its partners operate.",
-            "By using our website, you consent to such transfers, processing, and storage as permitted by applicable laws.",
+            "Vignova may modify these Terms at any time.",
+            "Continued use of the website constitutes acceptance of updated Terms.",
           ]}
         />
 
         <PolicySection
-          title="10. User Rights"
+          title="11. Governing Law"
           paragraphs={[
-            "Requests may be submitted using the contact details provided below.",
-            "We reserve the right to verify identity before processing such requests.",
-          ]}
-          items={[
-            "Accessing personal information",
-            "Correcting inaccurate information",
-            "Updating personal information",
-            "Requesting deletion of personal information",
-            "Objecting to certain processing activities",
-            "Withdrawing consent where applicable",
-          ]}
-        />
-
-        <PolicySection
-          title="11. Children's Privacy"
-          paragraphs={[
-            "Our website, products, and services are not directed toward individuals under 18 years of age.",
-            "We do not knowingly collect personal information from minors.",
-            "If we become aware that personal information from a minor has been collected, we may take steps to remove such information.",
-          ]}
-        />
-
-        <PolicySection
-          title="12. Recruitment and Career Applications"
-          paragraphs={[
-            "Submission of an application does not guarantee employment or further consideration.",
-          ]}
-          items={[
-            "Candidate evaluation",
-            "Recruitment communication",
-            "Employment verification",
-            "Future job opportunities",
-          ]}
-        />
-
-        <PolicySection
-          title="13. Product-Specific Privacy Policies"
-          paragraphs={[
-            "Certain products or services may have separate policies governing their use.",
-          ]}
-          items={[
-            "Privacy Policies",
-            "Terms of Service",
-            "User Agreements",
-            "Data Processing Notices",
-          ]}
-        />
-
-        <PolicySection
-          title="14. Intellectual Property and Website Usage"
-          paragraphs={[
-            "Nothing in this Privacy Policy grants any ownership rights to website content, trademarks, logos, product names, software, designs, documentation, or intellectual property belonging to Vignova Technologies Private Limited.",
-            "Unauthorized copying, reproduction, distribution, or misuse may result in legal action.",
-          ]}
-        />
-
-        <PolicySection
-          title="15. Limitation of Liability"
-          paragraphs={[
-            "Users access and use the website at their own risk.",
-          ]}
-          items={[
-            "Website usage",
-            "Service interruptions",
-            "Security breaches",
-            "Unauthorized access",
-            "Third-party actions",
-            "Data loss",
-          ]}
-        />
-
-        <PolicySection
-          title="16. Changes to This Privacy Policy"
-          paragraphs={[
-            "We reserve the right to modify, update, revise, or replace this Privacy Policy at any time without prior notice.",
-            "Changes become effective immediately upon publication on this website.",
-            "Continued use of the website following changes constitutes acceptance of the revised Privacy Policy.",
-          ]}
-        />
-
-        {/* Section 17 — kept as explicit JSX since it has mixed content */}
-        <section className="mb-14">
-          <h2 className="text-3xl font-bold text-gray-900 mb-6">
-            17. Contact Information
-          </h2>
-          <p className="text-lg text-gray-700 leading-9 mb-3">
-            <strong>Vignova Technologies Private Limited</strong>
-          </p>
-          <p className="text-lg text-gray-700 mb-3">
-            Email:{" "}
-            <a
-              href="mailto:privacy@yourdomain.com"
-              className="text-blue-600 underline hover:text-blue-800"
-            >
-              privacy@yourdomain.com
-            </a>
-          </p>
-          <p className="text-lg text-gray-700 mb-3">
-            Website:{" "}
-            <a
-              href="https://www.yourdomain.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-600 underline hover:text-blue-800"
-            >
-              www.yourdomain.com
-            </a>
-          </p>
-          <p className="text-lg text-gray-700">
-            Registered Office Address: [Insert Registered Office Address]
-          </p>
-        </section>
-
-        <PolicySection
-          title="18. Governing Law and Jurisdiction"
-          paragraphs={[
-            "This Privacy Policy shall be governed by and interpreted in accordance with the laws of India.",
-            "Any disputes arising from or relating to this Privacy Policy shall be subject to the exclusive jurisdiction of the competent courts located in Hyderabad, Telangana, India.",
+            "These Terms shall be governed by the laws of India.",
+            "Any disputes shall be subject to the exclusive jurisdiction of courts located in Hyderabad, Telangana, India.",
           ]}
         />
       </div>
     </div>
+  );
+}
+
+/* Reusable Components */
+
+interface PolicySectionProps {
+  title: string;
+  paragraphs?: string[];
+  items?: string[];
+  intro?: string;
+}
+
+function PolicySection({
+  title,
+  paragraphs = [],
+  items = [],
+  intro = "",
+}: PolicySectionProps) {
+  return (
+    <section className="mb-14">
+      <h2 className="text-3xl font-bold mb-6">{title}</h2>
+
+      {intro && (
+        <p className="text-lg text-gray-700 leading-9 mb-5">{intro}</p>
+      )}
+
+      {items.length > 0 && (
+        <ul className="list-disc pl-8 space-y-3 text-lg text-gray-700 leading-8 mb-6">
+          {items.map((item, i) => (
+            <li key={i}>{item}</li>
+          ))}
+        </ul>
+      )}
+
+      {paragraphs.map((text, i) => (
+        <p key={i} className="text-lg text-gray-700 leading-9 mb-5">
+          {text}
+        </p>
+      ))}
+    </section>
+  );
+}
+
+interface BulletListProps {
+  items: string[];
+}
+
+function BulletList({ items }: BulletListProps) {
+  return (
+    <ul className="list-disc pl-8 space-y-3 text-lg text-gray-700 leading-8">
+      {items.map((item, i) => (
+        <li key={i}>{item}</li>
+      ))}
+    </ul>
   );
 }
