@@ -1,3 +1,34 @@
+/* Helper Components — defined BEFORE use to avoid hoisting issues */
+
+function BulletList({ items }) {
+  return (
+    <ul className="list-disc pl-8 space-y-3 text-lg text-gray-700 leading-8">
+      {items.map((item, i) => (
+        <li key={i}>{item}</li>
+      ))}
+    </ul>
+  );
+}
+
+function PolicySection({ title, paragraphs = [], items = [] }) {
+  return (
+    <section className="mb-14">
+      <h2 className="text-3xl font-bold text-gray-900 mb-6">{title}</h2>
+
+      {paragraphs.length > 0 &&
+        paragraphs.map((text, i) => (
+          <p key={i} className="text-lg text-gray-700 leading-9 mb-5">
+            {text}
+          </p>
+        ))}
+
+      {items.length > 0 && <BulletList items={items} />}
+    </section>
+  );
+}
+
+/* Main Component */
+
 export default function PrivacyPolicy() {
   return (
     <div className="min-h-screen bg-white">
@@ -13,73 +44,72 @@ export default function PrivacyPolicy() {
           <span className="font-semibold">Last Updated:</span> June 17, 2026
         </p>
 
-        {/* Reusable Section Style */}
-        {[
-          {
-            title: "1. Introduction",
-            content: [
-              `Welcome to Vignova Technologies Private Limited ("Vignova", "Company", "we", "our", or "us").`,
-              `We respect your privacy and are committed to protecting the personal information you provide when visiting our website, interacting with our products and services, contacting us, applying for employment opportunities, or engaging with us in any other manner.`,
-              `This Privacy Policy describes how we collect, use, store, process, disclose, and protect your information.`,
-              `By accessing or using our website, you acknowledge that you have read and understood this Privacy Policy and agree to the collection and use of information in accordance with it.`,
-            ],
-          },
-        ].map((section, index) => (
-          <section key={index} className="mb-14">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">
-              {section.title}
-            </h2>
-            {section.content.map((text, i) => (
-              <p key={i} className="text-lg text-gray-700 leading-9 mb-5">
-                {text}
-              </p>
-            ))}
-          </section>
-        ))}
+        {/* Section 1 — simplified from unnecessary single-item array map */}
+        <section className="mb-14">
+          <h2 className="text-3xl font-bold text-gray-900 mb-6">
+            1. Introduction
+          </h2>
+          {[
+            `Welcome to Vignova Technologies Private Limited ("Vignova", "Company", "we", "our", or "us").`,
+            `We respect your privacy and are committed to protecting the personal information you provide when visiting our website, interacting with our products and services, contacting us, applying for employment opportunities, or engaging with us in any other manner.`,
+            `This Privacy Policy describes how we collect, use, store, process, disclose, and protect your information.`,
+            `By accessing or using our website, you acknowledge that you have read and understood this Privacy Policy and agree to the collection and use of information in accordance with it.`,
+          ].map((text, i) => (
+            <p key={i} className="text-lg text-gray-700 leading-9 mb-5">
+              {text}
+            </p>
+          ))}
+        </section>
 
         {/* Section 2 */}
         <section className="mb-14">
-          <h2 className="text-3xl font-bold mb-6">2. Information We Collect</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-6">
+            2. Information We Collect
+          </h2>
 
-          <h3 className="text-2xl font-semibold mb-4">
+          <h3 className="text-2xl font-semibold text-gray-900 mb-4">
             A. Information You Voluntarily Provide
           </h3>
           <p className="text-lg text-gray-700 leading-9 mb-4">
             We may collect information that you voluntarily submit, including:
           </p>
-          <ul className="list-disc pl-8 space-y-3 text-lg text-gray-700 leading-8 mb-8">
-            <li>Full Name</li>
-            <li>Email Address</li>
-            <li>Phone Number</li>
-            <li>Company or Organization Name</li>
-            <li>Job Title</li>
-            <li>Business Information</li>
-            <li>Messages submitted through contact forms</li>
-            <li>Career application details</li>
-            <li>Resume/CV information</li>
-            <li>Any other information voluntarily provided by you</li>
-          </ul>
+          <BulletList
+            items={[
+              "Full Name",
+              "Email Address",
+              "Phone Number",
+              "Company or Organization Name",
+              "Job Title",
+              "Business Information",
+              "Messages submitted through contact forms",
+              "Career application details",
+              "Resume/CV information",
+              "Any other information voluntarily provided by you",
+            ]}
+          />
 
-          <h3 className="text-2xl font-semibold mb-4">
+          <h3 className="text-2xl font-semibold text-gray-900 mb-4 mt-8">
             B. Information Automatically Collected
           </h3>
           <p className="text-lg text-gray-700 leading-9 mb-4">
             When you access our website, we may automatically collect:
           </p>
-          <ul className="list-disc pl-8 space-y-3 text-lg text-gray-700 leading-8 mb-8">
-            <li>IP Address</li>
-            <li>Browser Type and Version</li>
-            <li>Device Information</li>
-            <li>Operating System</li>
-            <li>Referral Source</li>
-            <li>Pages Viewed</li>
-            <li>Date and Time of Access</li>
-            <li>Website Usage Information</li>
-            <li>Clickstream Data</li>
-            <li>Session Information</li>
-          </ul>
+          <BulletList
+            items={[
+              "IP Address",
+              "Browser Type and Version",
+              "Device Information",
+              "Operating System",
+              "Referral Source",
+              "Pages Viewed",
+              "Date and Time of Access",
+              "Website Usage Information",
+              "Clickstream Data",
+              "Session Information",
+            ]}
+          />
 
-          <h3 className="text-2xl font-semibold mb-4">
+          <h3 className="text-2xl font-semibold text-gray-900 mb-4 mt-8">
             C. Cookies and Similar Technologies
           </h3>
           <p className="text-lg text-gray-700 leading-9 mb-5">
@@ -95,7 +125,6 @@ export default function PrivacyPolicy() {
           </p>
         </section>
 
-        {/* Helper component style repeated */}
         <PolicySection
           title="3. How We Use Information"
           items={[
@@ -126,14 +155,16 @@ export default function PrivacyPolicy() {
         />
 
         <section className="mb-14">
-          <h2 className="text-3xl font-bold mb-6">
+          <h2 className="text-3xl font-bold text-gray-900 mb-6">
             5. Information Sharing and Disclosure
           </h2>
           <p className="text-lg text-gray-700 leading-9 mb-5">
             Vignova does not sell, rent, or trade personal information to third parties.
           </p>
 
-          <h3 className="text-2xl font-semibold mb-4">Service Providers</h3>
+          <h3 className="text-2xl font-semibold text-gray-900 mb-4">
+            Service Providers
+          </h3>
           <BulletList
             items={[
               "Website hosting",
@@ -145,7 +176,9 @@ export default function PrivacyPolicy() {
             ]}
           />
 
-          <h3 className="text-2xl font-semibold mb-4 mt-8">Business Transfers</h3>
+          <h3 className="text-2xl font-semibold text-gray-900 mb-4 mt-8">
+            Business Transfers
+          </h3>
           <BulletList
             items={[
               "Mergers",
@@ -156,7 +189,9 @@ export default function PrivacyPolicy() {
             ]}
           />
 
-          <h3 className="text-2xl font-semibold mb-4 mt-8">Legal Compliance</h3>
+          <h3 className="text-2xl font-semibold text-gray-900 mb-4 mt-8">
+            Legal Compliance
+          </h3>
           <BulletList
             items={[
               "Comply with applicable laws",
@@ -186,15 +221,15 @@ export default function PrivacyPolicy() {
 
         <PolicySection
           title="8. Third-Party Websites and Services"
+          paragraphs={[
+            "Our website may contain links to third-party websites, applications, or services.",
+            "Users should review the privacy policies of any third-party services they access.",
+          ]}
           items={[
             "Third-party content",
             "Privacy practices",
             "Security measures",
             "Terms and conditions",
-          ]}
-          paragraphs={[
-            "Our website may contain links to third-party websites, applications, or services.",
-            "Users should review the privacy policies of any third-party services they access.",
           ]}
         />
 
@@ -208,6 +243,10 @@ export default function PrivacyPolicy() {
 
         <PolicySection
           title="10. User Rights"
+          paragraphs={[
+            "Requests may be submitted using the contact details provided below.",
+            "We reserve the right to verify identity before processing such requests.",
+          ]}
           items={[
             "Accessing personal information",
             "Correcting inaccurate information",
@@ -215,10 +254,6 @@ export default function PrivacyPolicy() {
             "Requesting deletion of personal information",
             "Objecting to certain processing activities",
             "Withdrawing consent where applicable",
-          ]}
-          paragraphs={[
-            "Requests may be submitted using the contact details provided below.",
-            "We reserve the right to verify identity before processing such requests.",
           ]}
         />
 
@@ -233,27 +268,27 @@ export default function PrivacyPolicy() {
 
         <PolicySection
           title="12. Recruitment and Career Applications"
+          paragraphs={[
+            "Submission of an application does not guarantee employment or further consideration.",
+          ]}
           items={[
             "Candidate evaluation",
             "Recruitment communication",
             "Employment verification",
             "Future job opportunities",
           ]}
-          paragraphs={[
-            "Submission of an application does not guarantee employment or further consideration.",
-          ]}
         />
 
         <PolicySection
           title="13. Product-Specific Privacy Policies"
+          paragraphs={[
+            "Certain products or services may have separate policies governing their use.",
+          ]}
           items={[
             "Privacy Policies",
             "Terms of Service",
             "User Agreements",
             "Data Processing Notices",
-          ]}
-          paragraphs={[
-            "Certain products or services may have separate policies governing their use.",
           ]}
         />
 
@@ -267,6 +302,9 @@ export default function PrivacyPolicy() {
 
         <PolicySection
           title="15. Limitation of Liability"
+          paragraphs={[
+            "Users access and use the website at their own risk.",
+          ]}
           items={[
             "Website usage",
             "Service interruptions",
@@ -274,9 +312,6 @@ export default function PrivacyPolicy() {
             "Unauthorized access",
             "Third-party actions",
             "Data loss",
-          ]}
-          paragraphs={[
-            "Users access and use the website at their own risk.",
           ]}
         />
 
@@ -289,16 +324,33 @@ export default function PrivacyPolicy() {
           ]}
         />
 
+        {/* Section 17 — kept as explicit JSX since it has mixed content */}
         <section className="mb-14">
-          <h2 className="text-3xl font-bold mb-6">17. Contact Information</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-6">
+            17. Contact Information
+          </h2>
           <p className="text-lg text-gray-700 leading-9 mb-3">
             <strong>Vignova Technologies Private Limited</strong>
           </p>
           <p className="text-lg text-gray-700 mb-3">
-            Email: privacy@yourdomain.com
+            Email:{" "}
+            <a
+              href="mailto:privacy@yourdomain.com"
+              className="text-blue-600 underline hover:text-blue-800"
+            >
+              privacy@yourdomain.com
+            </a>
           </p>
           <p className="text-lg text-gray-700 mb-3">
-            Website: www.yourdomain.com
+            Website:{" "}
+            <a
+              href="https://www.yourdomain.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 underline hover:text-blue-800"
+            >
+              www.yourdomain.com
+            </a>
           </p>
           <p className="text-lg text-gray-700">
             Registered Office Address: [Insert Registered Office Address]
@@ -314,39 +366,5 @@ export default function PrivacyPolicy() {
         />
       </div>
     </div>
-  );
-}
-
-/* Helper Components */
-
-function PolicySection({ title, paragraphs = [], items = [] }) {
-  return (
-    <section className="mb-14">
-      <h2 className="text-3xl font-bold mb-6">{title}</h2>
-
-      {paragraphs.map((text, i) => (
-        <p key={i} className="text-lg text-gray-700 leading-9 mb-5">
-          {text}
-        </p>
-      ))}
-
-      {items.length > 0 && (
-        <ul className="list-disc pl-8 space-y-3 text-lg text-gray-700 leading-8">
-          {items.map((item, i) => (
-            <li key={i}>{item}</li>
-          ))}
-        </ul>
-      )}
-    </section>
-  );
-}
-
-function BulletList({ items }) {
-  return (
-    <ul className="list-disc pl-8 space-y-3 text-lg text-gray-700 leading-8">
-      {items.map((item, i) => (
-        <li key={i}>{item}</li>
-      ))}
-    </ul>
   );
 }
