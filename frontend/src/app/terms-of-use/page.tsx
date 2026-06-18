@@ -144,12 +144,19 @@ export default function TermsConditions() {
 
 /* Reusable Components */
 
+interface PolicySectionProps {
+  title: string;
+  paragraphs?: string[];
+  items?: string[];
+  intro?: string;
+}
+
 function PolicySection({
   title,
   paragraphs = [],
   items = [],
   intro = "",
-}) {
+}: PolicySectionProps) {
   return (
     <section className="mb-14">
       <h2 className="text-3xl font-bold mb-6">{title}</h2>
@@ -175,7 +182,11 @@ function PolicySection({
   );
 }
 
-function BulletList({ items }) {
+interface BulletListProps {
+  items: string[];
+}
+
+function BulletList({ items }: BulletListProps) {
   return (
     <ul className="list-disc pl-8 space-y-3 text-lg text-gray-700 leading-8">
       {items.map((item, i) => (
