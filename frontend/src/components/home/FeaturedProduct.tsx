@@ -21,7 +21,7 @@ const platforms = [
 export default function FeaturedProduct() {
   return (
     <section className="w-full py-16 bg-gradient-to-br from-[#dbeafe]/40 via-[#eff6ff] to-[#e0f2fe]/60 overflow-hidden">
-      <div className="w-full px-4 sm:px-8 lg:px-14">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
 
           {/* ── Left ── */}
@@ -36,7 +36,7 @@ export default function FeaturedProduct() {
               Featured Product
             </span>
 
-            <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#0f1f5c] mb-4 leading-tight">
+            <h2 className="text-2xl sm:text-3xl lg:text-5xl font-serif font-bold text-[#0f1f5c] leading-tight mb-4">
               FIM – Financial<br />Intelligence Manager
             </h2>
 
@@ -75,11 +75,21 @@ export default function FeaturedProduct() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.15 }}
-            className="flex-1 flex justify-center items-end relative min-h-[360px] md:min-h-[420px]"
+            className="
+flex-1
+flex
+justify-center
+items-end
+relative
+w-full
+min-h-[260px]
+sm:min-h-[340px]
+md:min-h-[420px]
+"
           >
 
             {/* ── LAPTOP ── */}
-            <div className="relative w-full max-w-[560px]">
+            <div className="relative w-full max-w-[560px] scale-[0.82] sm:scale-90 md:scale-100 origin-center">
 
               {/* Screen */}
               <div className="bg-[#1B2A6B] rounded-2xl p-[10px] shadow-2xl">
@@ -205,7 +215,23 @@ export default function FeaturedProduct() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: 0.35 }}
-                className="absolute -bottom-2 -right-6 w-36 bg-[#1B2A6B] rounded-[28px] shadow-2xl border-2 border-white/10 overflow-hidden"
+                className="
+absolute
+bottom-0
+right-0
+sm:-bottom-2
+sm:-right-6
+w-24
+sm:w-32
+md:w-36
+bg-[#1B2A6B]
+rounded-[22px]
+sm:rounded-[28px]
+shadow-2xl
+border-2
+border-white/10
+overflow-hidden
+"
               >
                 {/* Notch */}
                 <div className="flex justify-center pt-2 pb-1">

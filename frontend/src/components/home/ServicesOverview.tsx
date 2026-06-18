@@ -17,14 +17,23 @@ export default function ServicesOverview() {
       <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header row */}
-        <div className="flex flex-col md:flex-row justify-between items-end mb-10 gap-4">
-          <div>
-            <p className="text-[#2196F3] text-xs font-semibold uppercase tracking-widest mb-2">What We Do</p>
-            <h2 className="text-2xl md:text-3xl font-serif font-bold text-[#1B2A6B]">Our Services</h2>
-          </div>
-          <Link href="/services" className="text-sm font-semibold text-[#2196F3] flex items-center gap-1 hover:gap-2 transition-all">
-            View All Services <ArrowRight size={14} />
-          </Link>
+        <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-10 gap-4">
+          <div className="text-center md:text-left">
+  <p className="text-[#2196F3] text-xs font-semibold uppercase tracking-widest mb-2">
+    What We Do
+  </p>
+
+  <h2 className="text-2xl md:text-3xl font-serif font-bold text-[#1B2A6B]">
+    Our Services
+  </h2>
+</div>
+          <Link
+  href="/services"
+  className="inline-flex items-center gap-1 text-sm font-semibold text-[#2196F3] hover:gap-2 transition-all"
+>
+  View All Services
+  <ArrowRight size={14} />
+</Link>
         </div>
 
         {/* Cards grid */}
