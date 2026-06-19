@@ -94,7 +94,12 @@ export default function Footer() {
               ))}
             </ul>
             <h4 className="font-semibold text-sm mb-3 text-white">Contact</h4>
-            <p className="text-white/60 text-sm">vignova.official@gmail.com</p>
+            <a
+  href="mailto:vignova.official@gmail.com"
+  className="text-white/60 hover:text-white text-sm transition-colors"
+>
+  vignova.official@gmail.com
+</a>
             <p className="text-white/60 text-sm mt-1">+91 9121519893</p>
           </div>
         </div>

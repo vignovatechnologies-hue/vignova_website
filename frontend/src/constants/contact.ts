@@ -12,7 +12,7 @@ export type ContactDetail = {
 };
 
 export const contactDetails: ContactDetail[] = [
-  { icon: Mail,   label: "Email",         value: "vignova.offical@gmail.com" },
+  { icon: Mail,   label: "Email",         value: "vignova.official@gmail.com" },
   { icon: Phone,  label: "Phone",         value: "+91 9121519893" },
   { icon: MapPin, label: "Office",        value: "Hyderabad, India" },
   { icon: Clock,  label: "Response Time", value: "Within 24 hours on business days" },

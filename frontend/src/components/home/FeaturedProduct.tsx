@@ -21,7 +21,7 @@ const platforms = [
 export default function FeaturedProduct() {
   return (
     <section className="w-full py-16 bg-gradient-to-br from-[#dbeafe]/40 via-[#eff6ff] to-[#e0f2fe]/60 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+      <div className="w-full px-4 sm:px-8 lg:px-14">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
 
           {/* ── Left ── */}
@@ -36,7 +36,7 @@ export default function FeaturedProduct() {
               Featured Product
             </span>
 
-            <h2 className="text-2xl sm:text-3xl lg:text-5xl font-serif font-bold text-[#0f1f5c] leading-tight mb-4">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#0f1f5c] mb-4 leading-tight">
               FIM – Financial<br />Intelligence Manager
             </h2>
 
@@ -75,21 +75,11 @@ export default function FeaturedProduct() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.15 }}
-            className="
-flex-1
-flex
-justify-center
-items-end
-relative
-w-full
-min-h-[260px]
-sm:min-h-[340px]
-md:min-h-[420px]
-"
+            className="flex-1 flex justify-center items-end relative min-h-[360px] md:min-h-[420px]"
           >
 
             {/* ── LAPTOP ── */}
-            <div className="relative w-full max-w-[560px] scale-[0.82] sm:scale-90 md:scale-100 origin-center">
+            <div className="relative w-full max-w-[560px] mb-10 sm:mb-0">
 
               {/* Screen */}
               <div className="bg-[#1B2A6B] rounded-2xl p-[10px] shadow-2xl">
@@ -127,10 +117,10 @@ md:min-h-[420px]
                     </div>
 
                     {/* Donut + Transactions */}
-                    <div className="grid grid-cols-5 gap-3">
+                    <div className="grid grid-cols-1 sm:grid-cols-5 gap-3">
 
                       {/* Donut */}
-                      <div className="col-span-2 bg-white rounded-xl p-4 shadow-sm">
+                      <div className="sm:col-span-2 bg-white rounded-xl p-4 shadow-sm">
                         <p className="text-[10px] text-gray-500 font-medium mb-3">Expense by Category</p>
                         <div className="flex justify-center mb-3">
                           <svg viewBox="0 0 80 80" className="w-24 h-24">
@@ -173,7 +163,7 @@ md:min-h-[420px]
                       </div>
 
                       {/* Transactions */}
-                      <div className="col-span-3 bg-white rounded-xl p-4 shadow-sm">
+                      <div className="sm:col-span-3 bg-white rounded-xl p-4 shadow-sm">
                         <p className="text-[10px] font-semibold text-gray-600 mb-3">Recent Transactions</p>
                         <div className="flex flex-col gap-2.5">
                           {[
@@ -215,40 +205,24 @@ md:min-h-[420px]
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: 0.35 }}
-                className="
-absolute
-bottom-0
-right-0
-sm:-bottom-2
-sm:-right-6
-w-24
-sm:w-32
-md:w-36
-bg-[#1B2A6B]
-rounded-[22px]
-sm:rounded-[28px]
-shadow-2xl
-border-2
-border-white/10
-overflow-hidden
-"
+                className="absolute -bottom-3 right-2 sm:-right-6 w-24 sm:w-36 bg-[#1B2A6B] rounded-2xl sm:rounded-[28px] shadow-2xl border-2 border-white/10 overflow-hidden"
               >
                 {/* Notch */}
-                <div className="flex justify-center pt-2 pb-1">
-                  <div className="w-10 h-1.5 bg-[#162258] rounded-full"/>
+                <div className="flex justify-center pt-1.5 sm:pt-2 pb-1">
+                  <div className="w-6 sm:w-10 h-1 sm:h-1.5 bg-[#162258] rounded-full"/>
                 </div>
 
                 {/* Phone screen */}
-                <div className="bg-white mx-1.5 rounded-2xl overflow-hidden">
-                  <div className="bg-[#1B2A6B] px-3 py-2">
-                    <p className="text-white text-[8px] font-semibold">Monthly Overview</p>
+                <div className="bg-white mx-1 sm:mx-1.5 rounded-xl sm:rounded-2xl overflow-hidden">
+                  <div className="bg-[#1B2A6B] px-2 sm:px-3 py-1.5 sm:py-2">
+                    <p className="text-white text-[6px] sm:text-[8px] font-semibold">Monthly Overview</p>
                   </div>
-                  <div className="p-3">
-                    <p className="text-[8px] text-gray-400 mb-0.5">Savings</p>
-                    <p className="text-base font-bold text-[#0f1f5c] mb-2">₹64,800</p>
+                  <div className="p-2 sm:p-3">
+                    <p className="text-[6px] sm:text-[8px] text-gray-400 mb-0.5">Savings</p>
+                    <p className="text-[10px] sm:text-base font-bold text-[#0f1f5c] mb-1 sm:mb-2">₹64,800</p>
 
                     {/* Line chart */}
-                    <div className="bg-[#f0f7ff] rounded-lg p-2 mb-2">
+                    <div className="bg-[#f0f7ff] rounded-md sm:rounded-lg p-1.5 sm:p-2 mb-1.5 sm:mb-2">
                       <svg viewBox="0 0 100 40" className="w-full">
                         <defs>
                           <linearGradient id="lineGrad" x1="0" y1="0" x2="0" y2="1">
@@ -271,18 +245,18 @@ overflow-hidden
                     </div>
 
                     {/* Progress */}
-                    <div className="h-2 bg-gray-100 rounded-full overflow-hidden mb-1">
+                    <div className="h-1.5 sm:h-2 bg-gray-100 rounded-full overflow-hidden mb-1">
                       <div className="h-full w-[75%] bg-[#2196F3] rounded-full"/>
                     </div>
-                    <p className="text-[8px] text-gray-500">
+                    <p className="text-[6px] sm:text-[8px] text-gray-500">
                       Budget 75% <span className="text-green-500 font-semibold">On Track</span>
                     </p>
                   </div>
                 </div>
 
                 {/* Home bar */}
-                <div className="flex justify-center py-2">
-                  <div className="w-10 h-1 bg-[#162258] rounded-full"/>
+                <div className="flex justify-center py-1.5 sm:py-2">
+                  <div className="w-6 sm:w-10 h-0.5 sm:h-1 bg-[#162258] rounded-full"/>
                 </div>
               </motion.div>
 
