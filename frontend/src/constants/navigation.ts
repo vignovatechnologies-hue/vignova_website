@@ -18,6 +18,7 @@ export type NavLink = {
 export const navLinks: NavLink[] = [
   { name: "Home", href: "/" },
   { name: "About Us", href: "/about" },
+  { name: "VConnect", href: "/vconnect" },
   {
     name: "Products",
     href: "/products",

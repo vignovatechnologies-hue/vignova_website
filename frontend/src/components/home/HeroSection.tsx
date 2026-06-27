@@ -1,126 +1,160 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowRight, Shield, Layers, Lightbulb, Globe, Cloud, BarChart3, Users } from "lucide-react";
+import { ArrowRight, Shield, Layers, Lightbulb, Globe } from "lucide-react";
 import { fadeUp } from "@/lib/animations";
 
 const trustPills = [
-  { icon: Shield,    label: "Secure" },
-  { icon: Layers,    label: "Scalable" },
+  { icon: Shield, label: "Secure" },
+  { icon: Layers, label: "Scalable" },
   { icon: Lightbulb, label: "Innovative" },
-  { icon: Globe,     label: "Future-Ready" },
+  { icon: Globe, label: "Future-Ready" },
 ];
 
-const floatingIcons = [
-  { icon: Cloud,     top: "2%",  left: "18%", delay: 0,   size: 18, color: "#60a5fa" },
-  { icon: Shield,    top: "38%", left: "-4%", delay: 0.4, size: 16, color: "#93c5fd" },
-  { icon: BarChart3, top: "4%",  right: "10%", delay: 0.8, size: 18, color: "#60a5fa" },
-  { icon: Users,     top: "70%", right: "6%", delay: 0.6, size: 16, color: "#93c5fd" },
+const floatingWords = [
+  { word: "AI", top: "12%", left: "6%", delay: 0, size: "text-xs" },
+  { word: "Cloud", top: "22%", right: "8%", delay: 0.3, size: "text-xs" },
+  { word: "SaaS", top: "65%", left: "4%", delay: 0.6, size: "text-xs" },
+  { word: "Automation", top: "72%", right: "5%", delay: 0.9, size: "text-xs" },
+  { word: "API", top: "42%", left: "2%", delay: 1.2, size: "text-xs" },
+  { word: "Data", top: "50%", right: "3%", delay: 0.5, size: "text-xs" },
 ];
 
 export default function HeroSection() {
   return (
     <section
-      className="relative w-full pt-20 md:pt-24 pb-12 md:pb-0 overflow-hidden bg-[#0a1330]"
+      className="relative w-full pt-24 pb-16 md:pb-24 overflow-hidden"
       style={{
-        backgroundImage:
-          "linear-gradient(to right, rgba(2,6,23,0.95), rgba(10,19,48,0.85), rgba(10,19,48,0.55)), url('/globe-bg.png')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
+        background: "linear-gradient(135deg, #020617 0%, #0a1330 40%, #0d1f4e 70%, #0a1330 100%)",
       }}
     >
-      <div className="w-full px-4 sm:px-8 lg:px-14">
-        <div className="flex flex-col lg:flex-row items-center min-h-[480px] md:min-h-[520px] gap-10 lg:gap-0">
+      {/* Animated background grid */}
+      <div
+        className="absolute inset-0 opacity-[0.04]"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(96,165,250,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(96,165,250,0.6) 1px, transparent 1px)",
+          backgroundSize: "60px 60px",
+        }}
+      />
 
-          {/* ── Left — text ── */}
-          <div className="flex-1 w-full pb-4 lg:pb-16 text-center lg:text-left z-10">
-            <motion.h1
-              variants={fadeUp} initial="hidden" animate="show" custom={0}
-              className="text-3xl sm:text-4xl md:text-[2.75rem] lg:text-[3rem] xl:text-[3.25rem] font-serif font-bold text-white leading-[1.12] mb-4 md:mb-5"
+      {/* Glowing orbs */}
+      <div className="absolute top-[10%] left-[20%] w-96 h-96 rounded-full bg-blue-600/10 blur-[80px] pointer-events-none" />
+      <div className="absolute bottom-[10%] right-[15%] w-80 h-80 rounded-full bg-indigo-500/10 blur-[80px] pointer-events-none" />
+
+      {/* Floating tech words */}
+      {floatingWords.map(({ word, top, left, right, delay, size }, i) => (
+        <motion.span
+          key={i}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: [0.18, 0.35, 0.18] }}
+          transition={{ duration: 4, delay, repeat: Infinity, ease: "easeInOut" }}
+          className={`absolute ${size} font-mono font-bold text-blue-400/40 select-none pointer-events-none tracking-widest uppercase`}
+          style={{ top, left, right }}
+        >
+          {word}
+        </motion.span>
+      ))}
+
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-6 sm:px-10 lg:px-14">
+        <div className="flex flex-col items-center text-center">
+
+          {/* Eyebrow pill */}
+          <motion.div
+            variants={fadeUp} initial="hidden" animate="show" custom={0}
+            className="inline-flex items-center gap-2 px-4 py-1.5 mb-7 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-300 text-xs font-semibold tracking-wider uppercase"
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
+            Vignova Technologies Private Limited
+          </motion.div>
+
+          {/* Main headline */}
+          <motion.h1
+            variants={fadeUp} initial="hidden" animate="show" custom={1}
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-white leading-[1.08] mb-6 max-w-5xl"
+          >
+            Building Intelligent Software{" "}
+            <br className="hidden sm:block" />
+            for{" "}
+            <span
+              className="relative inline-block"
+              style={{
+                background: "linear-gradient(90deg, #60a5fa, #818cf8, #60a5fa)",
+                backgroundSize: "200% auto",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+                animation: "shimmer 3s linear infinite",
+              }}
             >
-              Building Intelligent Software for{" "}
-              <span className="text-[#60a5fa]">People,</span>{" "}
-              <span className="text-[#60a5fa]">Businesses,</span> and the Future.
-            </motion.h1>
+              People & Businesses.
+            </span>
+          </motion.h1>
 
-            <motion.p
-              variants={fadeUp} initial="hidden" animate="show" custom={1}
-              className="text-gray-300 text-sm md:text-base leading-relaxed mb-7 max-w-md mx-auto lg:mx-0"
+          <style>{`
+            @keyframes shimmer {
+              from { background-position: 0% center; }
+              to   { background-position: 200% center; }
+            }
+          `}</style>
+
+          {/* Subheading */}
+          <motion.p
+            variants={fadeUp} initial="hidden" animate="show" custom={2}
+            className="text-gray-400 text-base md:text-lg leading-relaxed mb-10 max-w-2xl"
+          >
+            We create innovative software products that help individuals and businesses
+            simplify operations, improve productivity, and accelerate digital transformation.
+          </motion.p>
+
+          {/* CTA buttons */}
+          <motion.div
+            variants={fadeUp} initial="hidden" animate="show" custom={3}
+            className="flex flex-col sm:flex-row gap-4 mb-12 justify-center"
+          >
+            <Link
+              href="/products"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#2196F3] text-white text-sm font-semibold rounded-xl hover:bg-[#1976d2] transition-all shadow-lg shadow-blue-600/25 hover:shadow-blue-600/40"
             >
-              We create innovative software products that help individuals and businesses simplify
-              operations, improve productivity, and accelerate digital transformation.
-            </motion.p>
-
-            <motion.div
-              variants={fadeUp} initial="hidden" animate="show" custom={2}
-              className="flex flex-col sm:flex-row gap-3 mb-8 justify-center lg:justify-start"
+              Explore Our Products <ArrowRight size={15} />
+            </Link>
+            <Link
+              href="/vconnect"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-white/8 border border-white/20 text-white text-sm font-semibold rounded-xl hover:bg-white/15 hover:border-white/40 transition-all backdrop-blur-sm"
             >
-              <Link href="/products"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#2196F3] text-white text-sm font-semibold rounded-lg hover:bg-[#1976d2] transition-colors shadow-md">
-                Explore Our Products <ArrowRight size={15} />
-              </Link>
-              <Link href="/about"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white/15 border border-white/50 text-white text-sm font-semibold rounded-lg hover:bg-white/25 hover:border-white/70 transition-colors backdrop-blur-sm">
-                Learn More About Us <ArrowRight size={15} />
-              </Link>
-            </motion.div>
+              Discover VConnect <ArrowRight size={15} />
+            </Link>
+          </motion.div>
 
-            <motion.div
-              variants={fadeUp} initial="hidden" animate="show" custom={3}
-              className="flex flex-wrap gap-5 justify-center lg:justify-start"
-            >
-              {trustPills.map(({ icon: Icon, label }) => (
-                <span key={label} className="flex items-center gap-1.5 text-xs font-medium text-gray-300">
-                  <Icon size={13} className="text-[#60a5fa]" /> {label}
-                </span>
-              ))}
-            </motion.div>
-          </div>
+          {/* Trust pills */}
+          <motion.div
+            variants={fadeUp} initial="hidden" animate="show" custom={4}
+            className="flex flex-wrap gap-6 justify-center"
+          >
+            {trustPills.map(({ icon: Icon, label }) => (
+              <span key={label} className="flex items-center gap-2 text-xs font-medium text-gray-400">
+                <Icon size={13} className="text-blue-400" /> {label}
+              </span>
+            ))}
+          </motion.div>
 
-          {/* ── Right — logo ── */}
-          <div className="flex flex-1 relative items-center justify-center min-h-[260px] sm:min-h-[340px] lg:min-h-[480px] w-full">
-
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-[260px] h-[260px] sm:w-[360px] sm:h-[360px] lg:w-[420px] lg:h-[420px] rounded-full bg-[#2196F3]/20 blur-3xl" />
-            </div>
-
-            <div className="hidden sm:block">
-              {floatingIcons.map(({ icon: Icon, top, left, right, delay, size, color }, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: [0, -8, 0] }}
-                  transition={{ duration: 3, delay, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute z-20 w-10 h-10 sm:w-11 sm:h-11 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl shadow-xl flex items-center justify-center"
-                  style={{ top, left, right }}
-                >
-                  <Icon size={size} style={{ color }} />
-                </motion.div>
-              ))}
-            </div>
-
-            <motion.div
-              initial={{ opacity: 0, scale: 0.85 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-              className="relative z-10 flex items-center justify-center
-                         w-44 h-44 sm:w-56 sm:h-56 lg:w-64 lg:h-64
-                         rounded-[2.25rem] bg-white/95 shadow-2xl
-                         ring-1 ring-white/40 p-5 sm:p-6"
-            >
-              <Image
-                src="/logo.jpeg"
-                alt="Vignova Technologies"
-                width={300}
-                height={300}
-                priority
-                className="object-contain w-full h-full drop-shadow-lg"
-              />
-            </motion.div>
-          </div>
+          {/* Stats bar */}
+          <motion.div
+            variants={fadeUp} initial="hidden" animate="show" custom={5}
+            className="mt-16 w-full max-w-3xl grid grid-cols-3 gap-px rounded-2xl overflow-hidden border border-white/10 bg-white/5"
+          >
+            {[
+              ["1+", "Products Built"],
+              ["2026", "Founded"],
+              ["∞", "Vision"],
+            ].map(([val, label], i) => (
+              <div key={i} className="flex flex-col items-center py-5 px-4 bg-white/[0.03] hover:bg-white/[0.07] transition-colors">
+                <span className="text-2xl font-medium text-white font-sans">{val}</span>
+                <span className="text-xs text-gray-500 mt-1 font-medium">{label}</span>
+              </div>
+            ))}
+          </motion.div>
 
         </div>
       </div>

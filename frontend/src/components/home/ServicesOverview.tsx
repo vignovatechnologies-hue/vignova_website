@@ -19,25 +19,25 @@ export default function ServicesOverview() {
         {/* Header row */}
         <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-10 gap-4">
           <div className="text-center md:text-left">
-  <p className="text-[#2196F3] text-xs font-semibold uppercase tracking-widest mb-2">
-    What We Do
-  </p>
+            <p className="text-[#2196F3] text-xs font-semibold uppercase tracking-widest mb-2">
+              What We Do
+            </p>
 
-  <h2 className="text-2xl md:text-3xl font-serif font-bold text-[#1B2A6B]">
-    Our Services
-  </h2>
-</div>
+            <h2 className="text-2xl md:text-3xl font-serif font-bold text-[#1B2A6B]">
+              Our Services
+            </h2>
+          </div>
           <Link
-  href="/services"
-  className="inline-flex items-center gap-1 text-sm font-semibold text-[#2196F3] hover:gap-2 transition-all"
->
-  View All Services
-  <ArrowRight size={14} />
-</Link>
+            href="/services"
+            className="inline-flex items-center gap-1 text-sm font-semibold text-[#2196F3] hover:gap-2 transition-all"
+          >
+            View All Services
+            <ArrowRight size={14} />
+          </Link>
         </div>
 
         {/* Cards grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {services.map(({ icon: Icon, title, desc }, i) => (
             <motion.div
               key={title}

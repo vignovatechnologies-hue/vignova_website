@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import Navbar from "@/components/layout/Navbar";
 
 export const metadata: Metadata = {
   title: "Vignova Technologies — Intelligent Software for People & Businesses",
@@ -22,7 +23,13 @@ export default function RootLayout({
   return (
     <html lang="en" style={{ backgroundColor: "white" }}>
       <body style={{ backgroundColor: "white", width: "100%", minHeight: "100vh" }}>
-        {children}
+        
+        <Navbar />   {/* Add this */}
+
+        <main className="pt-20">
+          {children}
+        </main>
+
       </body>
     </html>
   );

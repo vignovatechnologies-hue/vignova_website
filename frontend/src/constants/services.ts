@@ -62,6 +62,17 @@ export const services: Service[] = [
       "Third-Party Integrations",
     ],
   },
+  {
+    icon: Layers,
+    title: "AI Agent",
+    tagline: "AI Workflow Automation.",
+    desc: "Turn your manually repetitive workflow into Automation.",
+    features: [
+      "WhatsApp AI Agent",
+      "Linkedin Automation",
+      "Custom Workflow Automation"
+    ],
+  },
 ];
 
 export const industries = [
